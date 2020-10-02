@@ -3,8 +3,8 @@ import os
 def help():
     return """
     supported commands are
-    exit
-    help
+    0 - exit
+    ? - help
     1 - Check the balance
     2 - Create a new address
     3 - Send a coin to an address
@@ -43,14 +43,14 @@ def commands(command):
         '2': create_address,
         '3': send_coin,
         '4': list_transactions,
-        '5': generate_coin
+        '5': generate_coin,
     }.get(command, help)
 
 if __name__ == "__main__":
     print(help())
     while True:
         command = input("Enter the command you'd like to run: ")
-        if command == "exit":
+        if command == "exit" or command == '0':
             print("exiting application...")
             break
         print(commands(command)())
